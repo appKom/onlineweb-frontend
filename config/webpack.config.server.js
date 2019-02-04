@@ -30,7 +30,6 @@ module.exports = env => {
       new DefinePlugin({
         window: {}, // Fixes OIDC client needing window to be imported.
       }),
-      new ForkTsCheckerWebpackPlugin(),
     ]
   }
 }
