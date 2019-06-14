@@ -9,6 +9,7 @@ export interface IEventAPIParameters extends IBaseAPIParameters {
   event_end__lte?: string;
   event_type?: EventTypeEnum[] | EventTypeEnum;
   is_attendee?: 'True' | 'False';
+  companies?: number | number[];
 }
 
 export interface IAPIData<T> {

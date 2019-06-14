@@ -1,8 +1,12 @@
 import { ICareerOpportunity, IEmployment, ILocation, ISelectable, TagTypes } from 'career/models/Career';
-import { get, IAPIData } from 'common/utils/api';
-import { ICompany } from 'core/models/Company';
+import { get, IAPIData, IBaseAPIParameters } from 'common/utils/api';
+import { ICompany } from 'companies/models/Company';
 
 const API_URL = '/api/v1/career/';
+
+export interface ICareerAPIParameters extends IBaseAPIParameters {
+  company?: number | number[];
+}
 
 /** All selectable tags are wrapped in an ISelectable object */
 export type FilterJobs = [
@@ -12,8 +16,13 @@ export type FilterJobs = [
   Array<ISelectable<ILocation>>
 ];
 
-export const getCareerOpportunities = async (): Promise<FilterJobs> => {
-  const { results } = await get<IAPIData<ICareerOpportunity>>(API_URL, { format: 'json' });
+export const getCareers = async (args?: ICareerAPIParameters): Promise<ICareerOpportunity[]> => {
+  const { results } = await get<IAPIData<ICareerOpportunity>>(API_URL, { format: 'json', ...args });
+  return results;
+};
+
+export const getCareerOpportunities = async (args?: ICareerAPIParameters): Promise<FilterJobs> => {
+  const results = await getCareers(args);
   return configureFilters(results);
 };
 
