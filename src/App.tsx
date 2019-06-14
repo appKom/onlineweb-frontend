@@ -7,6 +7,7 @@ import React from 'react';
 import Loadable from 'react-loadable';
 import { Switch } from 'react-router-dom';
 import Career from './career/';
+import { Companies } from './companies';
 import Contribution from './contribution';
 import Core from './core';
 import HttpError from './core/components/errors/HttpError';
@@ -23,6 +24,7 @@ export const routes = {
   events: '/events',
   home: '/',
   career: '/career',
+  companies: '/companies',
   contribution: '/contribution',
   hobbygroups: '/hobbygroups',
   resources: '/resources',
@@ -53,6 +55,7 @@ export const Client = () => (
       <Route exact path={routes.home} component={Frontpage} />
       <Route path={routes.events} component={EventsRouter} />
       <Route path={routes.career} component={Career} />
+      <Route path={routes.companies} component={Companies} />
       <Route path={routes.contribution} component={Contribution} />
       <Route path={routes.hobbygroups} component={Hobbys} />
       <Route path={routes.resources} component={Resources} />

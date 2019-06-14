@@ -5,7 +5,7 @@ import { ICareerOpportunity, IEmployment, ILocation, ISelectable, TagTypes } fro
 import { prefetch } from 'common/utils/prefetch';
 import { PrefetchKey } from 'common/utils/PrefetchState';
 
-import { ICompany } from 'core/models/Company';
+import { ICompany } from 'companies/models/Company';
 
 type Filters = 'locations' | 'companies' | 'jobTypes';
 

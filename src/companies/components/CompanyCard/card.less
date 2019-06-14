@@ -1,0 +1,34 @@
+@import '~common/less/colors.less';
+@import '~common/less/mixins.less';
+@import '~common/less/constants.less';
+
+.companyCard {
+  .owCard();
+  margin: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  width: 100%;
+  max-width: (@owDesktopMaxWidth - 120px) / 4;
+
+  h2 {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+.image {
+  width: 100%;
+
+  img {
+    border-radius: @borderRadius @borderRadius 0 0;
+    width: 100%;
+  }
+}
+
+.divider {
+  border-bottom: 0.5px solid @darkGray;
+}
+
+.content {
+  padding: 10px;
+}
