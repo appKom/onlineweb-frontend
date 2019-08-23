@@ -136,3 +136,12 @@ export const patch = async <T, K = Partial<T>>(patchParams: IPutParams<K>): Prom
   const opts = { ...options, method: 'PATCH', body, headers };
   return performRequest(query, parameters, opts);
 };
+
+export const del = async (query: string, options?: IRequestOptions): Promise<void> => {
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  };
+  const opts = { ...options, method: 'DELETE', headers };
+  return performRequest(query, {}, opts);
+};
