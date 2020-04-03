@@ -76,7 +76,13 @@ export const CalendarView = () => {
         <CalendarFillerTiles days={previous} />
         {displayEventMonth &&
           displayEventMonth.map((events, index) => (
-            <CalendarTile key={`${month.toFormat('yyyy-MM')}-${index + 1}`} events={events} day={index + 1} active />
+            <CalendarTile
+              key={`${month.toFormat('yyyy-MM')}-${index + 1}`}
+              events={events}
+              day={index + 1}
+              month={month}
+              active
+            />
           ))}
         <CalendarFillerTiles days={next} />
       </div>

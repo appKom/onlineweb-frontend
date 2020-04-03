@@ -5,11 +5,13 @@ import React from 'react';
 import { getEventColor, IEvent, isCompanyEvent } from '../../models/Event';
 import style from './calendar.less';
 import CalendarHoverCard from './CalendarHoverCard';
+import { DateTime } from 'luxon';
 
 export interface ITileProps {
   events: IEvent[];
   active?: boolean;
   day: number;
+  month: DateTime;
 }
 
 export const createDayList = (amount: number, start: number): number[] => {
@@ -20,11 +22,17 @@ export const createDayList = (amount: number, start: number): number[] => {
   return l;
 };
 
-export const CalendarEventTile = ({ events, active = true, day }: ITileProps) => {
+export const CalendarEventTile = ({ events, active = true, day, month }: ITileProps) => {
+  const thisDate = new Date();
+  const today = thisDate.getDate();
+  //const myMonth = DateTime.local().get('month')
+  const thisMonth = thisDate.getMonth() + 1;
+  const isToday = day == today && thisMonth == parseInt(month.toFormat('M')) ? true : false;
   return (
     <div
       className={classNames(style.tile, {
         [style.tileInactive]: !active,
+        [style.tileToday]: isToday,
       })}
     >
       <div className={style.tileContent}>
