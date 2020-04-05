@@ -23,7 +23,7 @@ export const createDayList = (amount: number, start: number): number[] => {
 };
 
 export const CalendarEventTile = ({ events, active = true, day, month }: ITileProps) => {
-  const thisDate = new Date('April 25, 2020 03:24:00');
+  const thisDate = new Date();
   const today = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
   const isToday = day === today && thisMonth === parseInt(month.toFormat('M')) ? true : false;
