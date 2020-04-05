@@ -28,7 +28,17 @@
 }
 .tileToday {
   &:extend(.tile);
-  background-color: @darkGray;
+  span {
+    display: block;
+    text-align: center;
+    padding: 3px;
+    width: 1rem;
+    height: 1rem;
+    color: @offWhite;
+    background-color: @darkBlue;
+    border-radius: 50%;
+    line-height: 1;
+  }
 }
 
 .tileInactive {

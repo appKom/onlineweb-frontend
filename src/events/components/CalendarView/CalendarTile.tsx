@@ -25,9 +25,9 @@ export const createDayList = (amount: number, start: number): number[] => {
 export const CalendarEventTile = ({ events, active = true, day, month }: ITileProps) => {
   const thisDate = new Date();
   const today = thisDate.getDate();
-  //const myMonth = DateTime.local().get('month')
   const thisMonth = thisDate.getMonth() + 1;
   const isToday = day == today && thisMonth == parseInt(month.toFormat('M')) ? true : false;
+
   return (
     <div
       className={classNames(style.tile, {
@@ -36,7 +36,9 @@ export const CalendarEventTile = ({ events, active = true, day, month }: ITilePr
       })}
     >
       <div className={style.tileContent}>
-        <p>{day}</p>
+        <p>
+          <span>{day}</span>
+        </p>
         {events.map((event) => (
           <CalendarEvent key={event.id} {...event} />
         ))}
