@@ -8,9 +8,9 @@ import CalendarHoverCard from './CalendarHoverCard';
 import { DateTime } from 'luxon';
 
 export interface ITileProps {
-  events: IEvent[];
   active?: boolean;
   day: number;
+  events: IEvent[];
   month: DateTime;
 }
 
