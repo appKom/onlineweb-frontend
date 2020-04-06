@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import HoverCard from 'common/components/HoverCard';
 import { Link } from 'core/components/Router';
+import { DateTime } from 'luxon';
 import React from 'react';
 import { getEventColor, IEvent, isCompanyEvent } from '../../models/Event';
 import style from './calendar.less';
 import CalendarHoverCard from './CalendarHoverCard';
-import { DateTime } from 'luxon';
 
 export interface ITileProps {
   active?: boolean;
@@ -26,6 +26,7 @@ export const CalendarEventTile = ({ events, active = true, day, month }: ITilePr
   const thisDate = new Date();
   const today = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
+  // tslint:disable-next-line: radix
   const isToday = day === today && thisMonth === parseInt(month.toFormat('M')) ? true : false;
 
   return (
