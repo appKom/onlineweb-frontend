@@ -14,6 +14,9 @@ import { transactionsReducer } from 'payments/reducers/transactions';
 import { paymentsReducer } from 'payments/slices/payments';
 import { shopReducer } from 'shop/reducers';
 import { publicAttendeesReducer } from 'events/slices/publicAttendees';
+import { webshopProductsReducer } from 'webshop/slices/products';
+import { webshopProductSizesReducer } from 'webshop/slices/productSize';
+import { webshopProductCategoriesReducer } from 'webshop/slices/productCategory';
 
 export const initStore = (initialState: {} = {}) => {
   return configureStore({
@@ -34,6 +37,9 @@ export const initStore = (initialState: {} = {}) => {
       ruleBundles: ruleBundlesReducer,
       shop: shopReducer,
       transactions: transactionsReducer,
+      webshopProductCategories: webshopProductCategoriesReducer,
+      webshopProducts: webshopProductsReducer,
+      webshopProductSizes: webshopProductSizesReducer,
     },
     /* eslint sort-keys: "off" */
   });
