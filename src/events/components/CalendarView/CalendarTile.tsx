@@ -27,7 +27,7 @@ export const CalendarEventTile = ({ events, active = true, day, month }: ITilePr
   const today = thisDate.getDate();
   const thisMonth = thisDate.getMonth() + 1;
   // tslint:disable-next-line: radix
-  const isToday = day === today && thisMonth === parseInt(month.toFormat('M')) ? true : false;
+  const isToday = day === today && thisMonth === parseInt(month.toFormat('M'));
 
   return (
     <div
